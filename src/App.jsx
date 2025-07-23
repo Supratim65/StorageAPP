@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     const checkBucket = async () => {
       const { data, error } = await supabase.storage
-        .from("clientbucket") // ← your bucket name
+        .from("clientbucket") 
         .list("", { limit: 1 });
 
       if (error) {
@@ -30,7 +30,7 @@ function App() {
       }
     };
     checkBucket();
-  }, []); // Only Supabase connection check here
+  }, []); 
   useEffect(() => {
     async function fetchFiles() {
       const { data: fileList, error } = await supabase.storage
@@ -163,8 +163,8 @@ function App() {
                     alt={file.name}
                     className="w-32 h-32 object-cover rounded mb-3"
                     onError={(e) => {
-                      e.currentTarget.onerror = null; // Prevent recursion
-                      e.currentTarget.src = download; // Use default icon
+                      e.currentTarget.onerror = null; 
+                      e.currentTarget.src = download; 
                     }}
                   />
                   <a
